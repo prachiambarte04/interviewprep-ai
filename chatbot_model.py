@@ -8,18 +8,17 @@ import os
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Read dataset
-with open(
-    r"D:\nlp_projects\basic_nlp_mini_project\questions",
-    "r",
-    encoding="utf-8"
-) as f:
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+questions_path = os.path.join(BASE_DIR, "questions")
+answers_path = os.path.join(BASE_DIR, "answers")
+
+with open(questions_path, "r", encoding="utf-8") as f:
     questions = f.read().splitlines()
 
-with open(
-    r"D:\nlp_projects\basic_nlp_mini_project\answers",
-    "r",
-    encoding="utf-8"
-) as f:
+with open(answers_path, "r", encoding="utf-8") as f:
     answers = f.read().splitlines()
 
 # Embedding file
